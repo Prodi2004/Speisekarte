@@ -1,0 +1,48 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Zutat
+<h1>Zutat hinzufügen</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Home" asp-action="AddZutat">
+            <div class="card">
+                
+                <div class="card-body">
+                    <input hidden asp-for="SpeiseId" />
+                    <div class="row mb-3">
+                        <div class="col">
+                            <input class="form-control" asp-for="Beschreibung" type="text" placeholder="Beschreibung" />
+                            <span asp-validation-for="Beschreibung" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label>Einheit</label>
+                            <input class="form-control" asp-for="Einheit" type="text" placeholder="Einheit" />
+                            <span asp-validation-for="Einheit" class="text-danger"></span>
+                        </div>
+                        <div class="col">
+                            <label>Menge</label>
+                            <input class="form-control" asp-for="Menge" type="text" placeholder="Menge" />
+                            <span asp-validation-for="Menge" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary" type="submit">Speichern</button>
+                </div>
+            </div>
+           
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
